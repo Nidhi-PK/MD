@@ -140,11 +140,11 @@ int main(void)
 		  switch(rx_buffer[0])                                               // process the received data
 		  						{
 		  char buffer[10000];
-
+										// Connecting to bluetooth terminal app and transmitting the sensor data 
 		  						  case '1':
 
 		  							  snprintf(buffer, sizeof(buffer), "%XEE%XAA%XAA%XAA%XAA%X%X%X%XFF\r\n", (int)sensor_value[0][j],(int)sensor_value[1][j],(int)sensor_value[2][j],(int)sensor_value[3][j],(int)sensor_value[4][j],(int)sensor_value[5][j],(int)sensor_value[6][j],(int)sensor_value[7][j]);
-		  							  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+		  							  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET); // 
 		  							  HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 100);
 
 		  							  //memset(sensor_value, 0, sizeof(sensor_value));
