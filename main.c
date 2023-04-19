@@ -116,6 +116,7 @@ int main(void)
   {
 	  uint8_t rx_buffer[100];
 	  memset(rx_buffer, 0, sizeof(rx_buffer));
+	  memset(sensor_value, 0, sizeof(sensor_value));
 
 	  HAL_UART_Receive(&huart2, rx_buffer, sizeof(rx_buffer), 100);        //receive data from UART
 
