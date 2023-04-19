@@ -20,22 +20,22 @@ void pa4_adc1_init(void){
 	GPIOA->MODER |=(1U<<9);
 
 	/******Configure the ADC module ******/
-	/*Enable clock access to the ADC module*/
+	                                          /*Enabling the  clock access to the ADC module*/
 	RCC->APB2ENR |=ADC1EN;
 
-	/*Set conversion to continuous*/
+	                                        /*Setting the conversion to be continuous*/
 	ADC1->CR2 |=CR2_CONT;
 
-	/*Set sequencer length to 1*/
+						/*Setting sequencer length to 1*/
 	ADC1->SQR1 = SEQ_LEN_1;
 
-	/*Set adc channel*/
+							/*ADD adc channel*/
 	ADC1->SQR3 |= CH4_RANK1;
 
-	/*Enable adc module*/
+							/*Enable the adc module*/
 	ADC1->CR2 |=CR2_ADON;
 
-	/*Start conversion*/
+							/*Starting the ADC conversion*/
 	ADC1->CR2 |= CR2_SWSTART;
 
 }
@@ -43,9 +43,9 @@ void pa4_adc1_init(void){
 
 uint32_t adc_get_data(void)
 {
-	/*Wait for End-of-Conversion flag*/
+										/*Condition for end of conversion flag*/
 	while(!(ADC1->SR & SR_EOC)){}
 
-	/*Read results*/
+												/*Reading the  results*/
 	return (ADC1->DR);
 }
