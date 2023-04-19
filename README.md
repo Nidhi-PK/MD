@@ -1,3 +1,3 @@
 # MD
 
-This is a overview of a development project.
+This is an overview of a development project.
